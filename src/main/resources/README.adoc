@@ -1,0 +1,33 @@
+= Gradle-AsciidoctorJ
+
+Travis Build Status for Master Branch: [![Build Status](https://travis-ci.org/jnorthr/gradle-scala.svg?branch=master)](https://travis-ci.org/jnorthr/gradle-scala)
+
+# gradle-scala
+A skeleton project for scala hackers. Clone includes gradle build tool wrapper and folder structure like maven/gradle
+
+When trying to connect travis continuous integration service, i had a .travis.yml manifest that declared 'groovy' was the language of choice and since a build.gradle file was present, the travis documents said travis would build by gradle-scala project using gradle. But this did not happen. 
+Could not figure out why not, until i read this:
+
+Travis C/I Getting Started -> http://docs.travis-ci.com/user/getting-started/
+
+4. Add the .travis.yml file to git, commit and push, to trigger a Travis CI build:
+
+Note: Travis only runs a build on the commits you push after adding the repository to Travis. Note: If your project already has a .travis.yml file, you need to push another commit to trigger a build.
+
+Oh ! Ok, so we'll do that.So changed this README.md
+
+Oh No !
+=======
+
+That did not do it either. More research.
+
+When trying to connect this repo to *Travis*, i had a *.travis.yml* configuration that declared `groovy` was the language of choice and since a *build.gradle* file was present, the documents said *travis* would build my *gradle-scala* project using gradle. But this did not happen. So i changed my `language` declaration from groovy to scala and did another push from my system to *GitHub*. 
+
+Houston, We Have Lift-off !
+============================
+
+Why Did It Build ?
+==================
+
+Turns out that it was not the language declaration in *.travis.yml* configuration that made *Travis* play nicely, it was the additional git push of another change that triggered the build. Did a browser refresh and found this:
+

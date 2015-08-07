@@ -1,0 +1,33 @@
+// gradle-asciidoctorj build.gradle file to test document production
+// http://asciidoctor.org/docs/asciidoctor-gradle-plugin/
+
+// get externals via plugins
+apply plugin:'java'
+apply plugin: 'org.asciidoctor.gradle.asciidoctor'
+ 
+sourceSets.main.resources { srcDirs = ["src/main/resources"]; exclude "**/*.adoc" }
+
+// if no tasks on gradlew command line then do these:
+//defaultTasks 'runSimple'
+
+buildscript {
+    repositories {
+        maven{ url 'http://jcenter.bintray.com' }
+	mavenCentral()
+    }
+
+    dependencies {
+	classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.2'
+
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion '2.5'
+}
+
+asciidoctor { 
+    sourceDir = new File("src/main/resources")
+    outputDir = new File("$buildDir/docs")
+    separateOutputDirs = false;
+}
