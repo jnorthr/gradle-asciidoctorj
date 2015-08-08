@@ -12,12 +12,18 @@ Pre-requisites
 
 Steps
 1. open terminal console
+
 2. change directory ( cd ) into target folder location
+
 3. run this command to create a folder named gradle-asciidoctorj and copy down all the pieces :
-	git clone https://github.com/jnorthr/gradle-asciidoctorj.git
-4. cd gradle-asciidoctorj
-5. ./gradlew
-6. after step 5 completes, examine gradle-asciidoctorj folder to find the /build folder with an html file for each asciidoctor file in the /resources folder 
+
+	**git clone https://github.com/jnorthr/gradle-asciidoctorj.git**
+
+4. **cd gradle-asciidoctorj**
+
+5. **./gradlew**
+
+6. after step 5 completes, examine gradle-asciidoctorj folder to find the **/build** folder with an html file for each asciidoctor file in the **/resources** folder 
 
 
 
