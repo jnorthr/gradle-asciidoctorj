@@ -23,7 +23,9 @@ Steps
 
 5. **./gradlew**
 
-6. after step 5 completes, examine gradle-asciidoctorj folder to find the **/build** folder with an html file for each asciidoctor file in the **/resources** folder 
+6. after step 4 completes, examine **gradle-asciidoctorj** folder to find the **/build/docs** folder with an html file for each asciidoctor file in the **/resources** folder 
+
+Note: Have added a gradle task called **copyImages** to copy image files from the **./images** file into **$buildDir/docs/images**
 
 
 
