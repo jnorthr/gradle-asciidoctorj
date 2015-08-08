@@ -19,3 +19,5 @@ Steps
 5. ./gradlew
 6. after step 5 completes, examine gradle-asciidoctorj folder to find the /build folder with an html file for each asciidoctor file in the /resources folder 
 
+
+
