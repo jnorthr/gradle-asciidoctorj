@@ -5,11 +5,16 @@
 apply plugin:'java'
 apply plugin: 'org.asciidoctor.gradle.asciidoctor'
  
-sourceSets.main.resources { srcDirs = ["src/main/resources"]; exclude "**/*.adoc" }
+ 
+// ask any tar or zip task to avoid putting asciidoctor text files into the output jar 
+// as they wil have been made into *.html files by the asciidoctor converter 
+sourceSets.main.resources { srcDirs = ["src/main/resources"]; exclude "**/*.adoc", "**/*.ad" }
 
 // if no tasks on gradlew command line then do these:
-//defaultTasks 'runSimple'
+defaultTasks 'clean', 'build', 'javadoc', 'asciidoctor', 'copyImages'
 
+
+// configure this build.gradle script to have the asciidoctor dependency installed from bintray
 buildscript {
     repositories {
         maven{ url 'http://jcenter.bintray.com' }
@@ -22,12 +27,31 @@ buildscript {
     }
 }
 
+// already ran this to create the gradlew, gradlew.bat and various bits needed by gradle when deployed
+// this avoids the target user needing to have an installed 'gradle' build tool. Provided this but can be ignored 
 task wrapper(type: Wrapper) {
     gradleVersion '2.5'
 }
 
+// translate any text file with known asciidoctor suffixes .ad .asc. adoc .asciidoc 
+// from folder: src/main/resources into output build folder named 'docs' as *.html
 asciidoctor { 
     sourceDir = new File("src/main/resources")
     outputDir = new File("$buildDir/docs")
-    separateOutputDirs = false;
+    separateOutputDirs = false;  // without this the sub-folder name $buildDir/docs/html is generated
 }
+
+// setup donor location of images to be used in the asciidoctor translations
+def baseSpec = copySpec {
+    from "images"
+    include "**/*.png"
+    include "**/*.jpg"
+    include "**/*.gif"
+    include "**/*.jpeg"
+    include "**/*.ico"
+ }
+
+task copyImages(type: Copy) {
+    into "$buildDir/docs/images"
+    with baseSpec
+ }
