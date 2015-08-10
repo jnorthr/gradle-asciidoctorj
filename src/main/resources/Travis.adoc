@@ -9,7 +9,7 @@ v0.1, 2015-08-05
 
 == Purpose
 
-This *GitHub* *gradle-scala* repository is a full skeleton project to build scala stuff using gradle. 
+This *GitHub* *gradle-asciidoctorj* repository is a full skeleton project to write text using asciidoctor markup stuff using gradle. 
 
 It pays dividends and increases user confidence if we can confirm that a project can be built successfully. Many changes to a project can cause failures that go undetected or unnoticed. An external service that keeps an eye on a project can be useful. A service that builds and tests a project is even more useful, and when reporting is combined with it, this becomes a valuable tool we can use to keep our projects rocking !
 
@@ -43,7 +43,7 @@ image:Screenshot3.png[List of your public repos,630,float="left",role="thumb"] T
 
 ''''
 
-For this *gradle-scala* project, i had to scroll down the page until i found my project. Clicked the `X` next to *gradle-scala*. It turned into a green checkmark to confirm *Travis* was happy. Next, went back to the previous panel showing all my repos known to *Travis*.
+For this *gradle-asciidoctorj* project, i had to scroll down the page until i found my project. Clicked the `X` next to *gradle-asciidoctorj*. It turned into a green checkmark to confirm *Travis* was happy. Next, went back to the previous panel showing all my repos known to *Travis*.
 
 [.thumb]
 image:Screenshot4.png[Click X to choose,384,role="thumb"]  
@@ -68,17 +68,12 @@ WARNING: Travis only runs a build on the commits you push *after* adding the rep
 
 === A Little Git Step
 
-Well, ok, reading up on this a bit *Travis* needs some configuration details to be able to build and test a project. These are declared in a file named *.travis.yml* which is stored on a git project in the root folder of the project. A sample for a scala project would look like this :
+Well, ok, reading up on this a bit *Travis* needs some configuration details to be able to build and test a project. These are declared in a file named *.travis.yml* which is stored on a git project in the root folder of the project. A sample for an asciidoctorj project would look like this :
 
 .travis.yml configuration sample
 [source,yml]
 ----
-language: scala
-scala:
-  - 2.11.7
-script: "sbt clean coverage test"
-after_success: "sbt coveralls"
-
+language: groovy
 jdk:
   - oraclejdk7
   - oraclejdk8
@@ -87,13 +82,13 @@ notifications:
     - james.northrop@orange.fr
 ----
  
-When trying to connect this repo to *Travis*, i had a *.travis.yml* configuration that declared `groovy` was the language of choice and since a *build.gradle* file was present, the documents said *travis* would build my *gradle-scala* project using gradle. But this did not happen. So i changed my `language` declaration from groovy to scala and did another push from my system to *GitHub*. 
+When trying to connect this repo to *Travis*, i had a *.travis.yml* configuration that declared `groovy` was the language of choice and since a *build.gradle* file was present, the documents said *travis* would build my project using gradle. But this did not happen. So i changed my `language` declaration from groovy to scala and did another push from my system to *GitHub*. 
 
 == Houston, We Have Lift-off !
 
 === Why Did It Build ?
 
-Turns out that it was not the language declaration in *.travis.yml* configuration that made *Travis* play nicely, it was the additional git push of another change that triggered the build. Did a browser refresh and found this:
+Turns out that it was not the language declaration in *.travis.yml* configuration that made *Travis* play nicely, it was the additional git push of another change that triggered the build. Changed my language back to groovy but there are other choices, hopefully one for text - but did not have time to explore. Did a browser refresh and found this:
 
 
 [.thumb]
