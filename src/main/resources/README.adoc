@@ -1,33 +1,42 @@
 = Gradle-AsciidoctorJ
+Jnorthr <james.northrop@orange.fr>
+v0.1, 2015-08-05
+:icons: font
+:toc: left
+:imagesdir: images
+:sectlinks:
+:sectnums:
 
-Travis Build Status for Master Branch: [![Build Status](https://travis-ci.org/jnorthr/gradle-asciidoctorjsvg?branch=master)](https://travis-ci.org/jnorthr/gradle-asciidoctorj)
+== Status
 
-# gradle-asciidoctorj
-A skeleton project for writers. Clone includes gradle build tool wrapper and folder structure like maven/gradle
+Travis Build Status for Master Branch: https://travis-ci.org/jnorthr/gradle-asciidoctorj.svg?branch=master[![Build Status]]
 
-When trying to connect travis continuous integration service, i had a .travis.yml manifest that declared 'groovy' was the language of choice and since a build.gradle file was present, the travis documents said travis would build My project using gradle. But this did not happen. 
-Could not figure out why not, until i read this:
+https://travis-ci.org/jnorthr/gradle-asciidoctorj[Build Status]
 
-Travis C/I Getting Started -> http://docs.travis-ci.com/user/getting-started/
+A skeleton project for documentation users. Clone includes gradle build tool wrapper and folder structure like maven/gradle
 
-4. Add the .travis.yml file to git, commit and push, to trigger a Travis CI build:
+== Pre-requisites
 
-Note: Travis only runs a build on the commits you push after adding the repository to Travis. Note: If your project already has a .travis.yml file, you need to push another commit to trigger a build.
+ . Working internet connection
+ . Installed Git client to copy/clone this repo
+ . Ability to use terminal console
 
-Oh ! Ok, so we'll do that.So changed this README.md
+== Steps
 
-Oh No !
-=======
+ . open terminal console
 
-That did not do it either. More research.
+ . change directory ( cd ) into target folder location
 
-When trying to connect this repo to *Travis*, i had a *.travis.yml* configuration that declared `groovy` was the language of choice and since a *build.gradle* file was present, the documents said *travis* would build my project using gradle. But this did not happen. So i changed my `language` declaration from groovy to scala and did another push from my system to *GitHub*. 
+ . run this command to create a folder named gradle-asciidoctorj and copy down all the pieces :
 
-Houston, We Have Lift-off !
-============================
+	`git clone https://github.com/jnorthr/gradle-asciidoctorj.git`
 
-Why Did It Build ?
-==================
+ . *cd gradle-asciidoctorj*
 
-Turns out that it was not the language declaration in *.travis.yml* configuration that made *Travis* play nicely, it was the additional git push of another change that triggered the build. So changed language spec back to groovy. Did a browser refresh and found this:
+ . *./gradlew*
 
+ . after step 4 completes, examine *gradle-asciidoctorj* folder to find the */build/docs* folder with an html file for each asciidoctor file in the */resources* folder 
+
+''''
+
+TIP:  Have added a gradle task called *copyImages* to copy image files from the *./images* file into *$buildDir/docs/images*
