@@ -22,7 +22,7 @@ buildscript {
     }
 
     dependencies {
-	classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.2'
+	classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
 
     }
 }
@@ -30,7 +30,7 @@ buildscript {
 // already ran this to create the gradlew, gradlew.bat and various bits needed by gradle when deployed
 // this avoids the target user needing to have an installed 'gradle' build tool. Provided this but can be ignored 
 task wrapper(type: Wrapper) {
-    gradleVersion '2.5'
+    gradleVersion '2.13'
 }
 
 // translate any text file with known asciidoctor suffixes .ad .asc. adoc .asciidoc 
