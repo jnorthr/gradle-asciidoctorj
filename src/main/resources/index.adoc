@@ -1,0 +1,25 @@
+= Sample Index Page
+Jnorthr <james.northrop@orange.fr>
+v0.2, 2017-01-05: This is a Remark
+:icons: font
+:toc: left
+:imagesdir: images
+:sectlinks:
+:sectnums:
+
+== This is a Heading
+
+You can type stuff here.
+
+'''
+
+TIP: This is a Tip
+
+''''
+
+== This could be a second-level title
+
+More new here.
+
+
+
