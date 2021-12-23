@@ -1,6 +1,6 @@
 = Sample Index Page
-Jnorthr <james.northrop@orange.fr>
-v0.2, 2017-01-05: This is a Remark
+Jnorthr <james.b.northrop@googlemail.com>
+v0.5, 2022-01-05: This is a Remark
 :icons: font
 :toc: left
 :imagesdir: images
@@ -13,7 +13,7 @@ You can type stuff here.
 
 '''
 
-TIP: This is a Tip
+TIP: This is a *Tip*
 
 ''''
 

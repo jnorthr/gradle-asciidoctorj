@@ -1,49 +1,29 @@
-// gradle-asciidoctorj build.gradle file to test document production
-// http://asciidoctor.org/docs/asciidoctor-gradle-plugin/
 
-// get externals via plugins
-apply plugin:'java'
-apply plugin: 'org.asciidoctor.gradle.asciidoctor'
+plugins {
+    id 'org.asciidoctor.jvm.convert' version '2.4.0'
+}
+
+
+repositories {
+	    mavenCentral()
+        google()
+}
  
- 
-// ask any tar or zip task to avoid putting asciidoctor text files into the output jar 
-// as they wil have been made into *.html files by the asciidoctor converter 
-sourceSets.main.resources { srcDirs = ["src/main/resources"]; exclude "**/*.adoc", "**/*.ad" }
 
 // if no tasks on gradlew command line then do these:
-defaultTasks 'clean', 'build', 'javadoc', 'asciidoctor', 'copyImages'
+defaultTasks 'clean', 'build', 'asciidoctor', 'copyImages'
 
-
-// configure this build.gradle script to have the asciidoctor dependency installed from bintray
-buildscript {
-    repositories {
-        maven{ url 'http://jcenter.bintray.com' }
-	mavenCentral()
-    }
-
-    dependencies {
-	classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
-
-    }
-}
-
-// already ran this to create the gradlew, gradlew.bat and various bits needed by gradle when deployed
-// this avoids the target user needing to have an installed 'gradle' build tool. Provided this but can be ignored 
-task wrapper(type: Wrapper) {
-    gradleVersion '3.4'
-}
 
 // translate any text file with known asciidoctor suffixes .ad .asc. adoc .asciidoc 
 // from folder: src/main/resources into output build folder named 'docs' as *.html
 asciidoctor { 
-    sourceDir = new File("src/main/resources")
+    sourceDir = new File("src/docs/asciidoc")
     outputDir = new File("$buildDir/docs")
-    separateOutputDirs = false;  // without this the sub-folder name $buildDir/docs/html is generated
 }
 
 // setup donor location of images to be used in the asciidoctor translations
 def baseSpec = copySpec {
-    from "images"
+    from "src/main/resources/images"
     include "**/*.png"
     include "**/*.jpg"
     include "**/*.gif"
@@ -55,3 +35,4 @@ task copyImages(type: Copy) {
     into "$buildDir/docs/images"
     with baseSpec
  }
+

@@ -1,6 +1,6 @@
 = Travis Continuous Integration Service
-Jnorthr <james.northrop@orange.fr>
-v0.1, 2015-08-05
+Jnorthr <james.b.northrop@googlemail.com>
+v1.1, 2021-12-05
 :icons: font
 :toc: left
 :imagesdir: images
@@ -13,13 +13,17 @@ This *GitHub* *gradle-asciidoctorj* repository is a full skeleton project to wri
 
 It pays dividends and increases user confidence if we can confirm that a project can be built successfully. Many changes to a project can cause failures that go undetected or unnoticed. An external service that keeps an eye on a project can be useful. A service that builds and tests a project is even more useful, and when reporting is combined with it, this becomes a valuable tool we can use to keep our projects rocking !
 
-TIP: https://travis-ci.org/[Travis Continuous Integration Service] is such a tool. image:travisIcon.png[]
+''''
+
+TIP: https://travis-ci.com/[Travis Continuous Integration Service] is such a tool. image:travisIcon.png[]
+
+''''
 
 == About Travis
 
 image:Screenshot1.png[See that button top right ?,466,float="right"]*©Travis CI, GmbH* from Berlin have created a cool tool to do just that. It only works with code repositories that exist in *GitHub*. 
 
-If you have a *GitHub* account, then to connect *Travis* to your own *GitHub* account, you use your *GitHub* credentials. Actually, you only click a `button` to do it - how cool is that ? Go to this link:  https://travis-ci.org/[travis-ci.org] to try it.
+If you have a *GitHub* account, then to connect *Travis* to your own *GitHub* account, you use your *GitHub* credentials. Actually, you only click a `button` to do it - how cool is that ? Go to this link:  https://travis-ci.com/[travis-ci.com] to try it.
 
 ''''
 
@@ -33,7 +37,7 @@ After that, you'll see a display like the sample seen here. It should have some 
 
 Each of the repos found in your account are potential candidates to be built by *Travis*. You can choose some of your own repos to be processed. 
 
-See the plus sign near `My Repositories`? Just click that to view your own projects.   
+See the *+* plus sign near `My Repositories`? Just click that to view your own projects.   
 
 ''''
 
@@ -50,7 +54,7 @@ image:Screenshot4.png[Click X to choose,384,role="thumb"]
 
 === Time to Build
 
-image:Screenshot5.png[No Builds for this Repo,469,float="left",role="thumb"]This should be enough to get your repo to built. But when we click the name of our repo in the list on the left, we receive this display. 
+image:Screenshot5.png[No Builds for this Repo,469,float="left",role="thumb"]This should be enough to get your repo to be built. But when we click the name of our repo in the list on the left, we receive this display. 
 
 So no joy there.  
 
@@ -68,18 +72,18 @@ WARNING: Travis only runs a build on the commits you push *after* adding the rep
 
 === A Little Git Step
 
-Well, ok, reading up on this a bit *Travis* needs some configuration details to be able to build and test a project. These are declared in a file named *.travis.yml* which is stored on a git project in the root folder of the project. A sample for an asciidoctorj project would look like this :
+Well, ok, reading up on this a bit, *Travis* needs some configuration details to be able to build and test a project. These are declared in a file named *.travis.yml* which is stored in a git project in the root folder of the project. A sample for an asciidoctorj project would look like this :
 
 .travis.yml configuration sample
 [source,yml]
 ----
 language: groovy
 jdk:
-  - oraclejdk7
-  - oraclejdk8
+  - oraclejdk11
+  - oraclejdk12
 notifications:
   email:
-    - james.northrop@orange.fr
+    - james.b.northrop@googlemail.com
 ----
  
 When trying to connect this repo to *Travis*, i had a *.travis.yml* configuration that declared `groovy` was the language of choice and since a *build.gradle* file was present, the documents said *travis* would build my project using gradle. But this did not happen. So i changed my `language` declaration from groovy to scala and did another push from my system to *GitHub*. 
@@ -110,7 +114,7 @@ image:Screenshot7.png[Job Done !,role="thumb",float="center"]
 
 == Success
 
-That was quite a session. It did take some time to become familiar with the linkage between *Travis* and *GitHub*. But at least, for this repository, any future push of another project update, will automatically trigger a *Travis* build and test. I can review the status of my future commitments to selected repos by visiting https://travis-ci.org/[travis-ci.org] and if i'm logged in, i will find a review of my repos showing success and/or failures.
+That was quite a session. It did take some time to become familiar with the linkage between *Travis* and *GitHub*. But at least, for this repository, any future push of another project update, will automatically trigger a *Travis* build and test. I can review the status of my future commitments to selected repos by visiting https://travis-ci.com/[travis-ci.org] and if i'm logged in, i will find a review of my repos showing success and/or failures.
 
 [.thumb]
 image:Screenshot8.png[Job Done !,role="thumb"]
