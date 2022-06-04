@@ -1,6 +1,6 @@
-= Sample Index Page
+= Test Sample Index Page
 Jnorthr <james.b.northrop@googlemail.com>
-v0.5, 2022-01-05: This is a Remark
+v0.9, 2021-12-25: This is a Silly Remark
 :icons: font
 :toc: left
 :imagesdir: images
@@ -20,6 +20,9 @@ TIP: This is a *Tip*
 == This will be a second-level title
 
 More new here.
+
+[.thumb]
+image:Screenshot4.png[Click X to choose,192,role="thumb"] 
 
 
 

@@ -1,6 +1,6 @@
 = Gradle-AsciidoctorJ README
 Jnorthr <james.b.northrop@googlemail.com>
-v0.5, 2021-12-25
+v1.0, 2022-06-02
 :icons: font
 :toc: left
 :imagesdir: images
@@ -31,7 +31,7 @@ The *sourceDir* declaration identifies the folder location where all your text d
 
 == Structure
 
-This clone includes gradle build tool wrapper and folder structure like maven/gradle
+This clone includes a gradle build tool wrapper and folder structure like maven/gradle
 
 == Pre-requisites
 
@@ -53,7 +53,7 @@ This clone includes gradle build tool wrapper and folder structure like maven/gr
 
  . *./gradlew*
 
- . after step 4 completes, examine *gradle-asciidoctorj* folder to find the */build/docs* folder with an html file for each asciidoctor file in the */resources* folder 
+ . after this step completes, examine your *gradle-asciidoctorj* folder to find the */build/docs* folder with an html file for each asciidoctor file in the */resources* folder 
 
 ''''
 

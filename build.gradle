@@ -11,7 +11,7 @@ repositories {
  
 
 // if no tasks on gradlew command line then do these:
-defaultTasks 'clean', 'build', 'asciidoctor', 'copyImages'
+defaultTasks 'asciidoctor', 'copyImages'
 
 
 // translate any text file with known asciidoctor suffixes .ad .asc. adoc .asciidoc 
